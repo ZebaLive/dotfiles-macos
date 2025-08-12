@@ -10,7 +10,7 @@ As a previous linux/i3wm user I've been trying to get the best of both worlds an
 - **Window Management**: Using [Aerospace](https://github.com/nikitabobko/aerospace) for tiling window management, with a focus on simplicity and ease of use. Different from other MacOS Apps, it doesn't use the builtin OS workspace system, it handles everything in the same OS workspace, allowing you to change between workareas without having to disabling core system protections.
 - **Terminal**: [WezTerm](https://wezfurlong.org/wezterm/) configured for optimal development experience
 - **Status Bar**: Custom [SketchyBar](https://github.com/FelixKratz/SketchyBar) configuration using Lua, already integrated with Aerospace for dinamically loading workspaces and listen for events.
-- **System Borders**: Enhanced window borders using [Borders](https://github.com/FelixKratz/borders)
+- **System Borders**: Enhanced window borders using [JankyBorders](https://github.com/FelixKratz/JankyBorders)
 - **Additional Tools**:
   - Raycast for app launching and workflows
   - Starship for shell customization

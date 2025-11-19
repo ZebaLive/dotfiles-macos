@@ -20,7 +20,7 @@ brew install jq
 brew install fzf
 
 # Nice to have
-brew install --cask raycast
+brew install --cask alfred
 brew install --cask nordpass
 brew install --cask btop
 brew install switchaudio-osx

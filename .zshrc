@@ -97,8 +97,7 @@ _fzf_comprun() {
 }
 
 # ----- Bat (better cat) -----
-export BAT_THEME=tokyonight_night
-alias cat=bat
+alias cat='bat --paging=never'
 
 # ---- Eza (better ls) -----
 alias ls="eza --color=always --long --git --icons=always --no-time --no-user --no-permissions"

@@ -15,7 +15,7 @@ return {
         }
     },
     bar = {
-        height = 36,
+        height = 32,
         padding = {
             x = 10,
             y = 0
@@ -46,8 +46,8 @@ return {
     icons = "sketchybar-app-font:Regular:16.0", -- alternatively available: NerdFont
 
     font = {
-        text = "FiraCode Nerd Font Mono", -- Used for text
-        numbers = "FiraCode Nerd Font Mono", -- Used for numbers
+        text = "FiraCode Nerd Font", -- Used for text
+        numbers = "FiraCode Nerd Font", -- Used for numbers
         style_map = {
             ["Regular"] = "Regular",
             ["Semibold"] = "Medium",

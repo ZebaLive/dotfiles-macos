@@ -28,6 +28,8 @@ alias vim=nvim
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -105,9 +107,7 @@ alias ls="eza --color=always --long --git --icons=always --no-time --no-user --n
 eval $(thefuck --alias)
 
 # ---- Zoxide (better cd) ----
-eval "$(zoxide init zsh)"
-
-alias cd="z"
+eval "$(zoxide init --cmd cd zsh)"
 
 # history setup
 #HISTFILE=$HOME/.zhistory
@@ -143,3 +143,4 @@ export PATH="$PATH:$NARGO_HOME/bin"
 #export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 eval "$(starship init zsh)"
+

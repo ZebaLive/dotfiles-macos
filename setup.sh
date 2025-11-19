@@ -10,7 +10,7 @@ xcode-select --install
 brew install lua
 brew tap FelixKratz/formulae
 brew install sketchybar
-brew install wezterm
+brew install --cask kitty
 brew tap FelixKratz/formulae
 brew install borders
 brew install --cask nikitabobko/tap/aerospace
@@ -33,11 +33,13 @@ brew install neovim
 brew install zoxide
 brew install eza
 brew install starship
+brew install fastfetch
 
 # Fonts
 brew install --cask sf-symbols
 brew install --cask font-sf-mono
 brew install --cask font-sf-pro
+brew install --cask font-fira-code-nerd-font
 
 curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.25/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
 

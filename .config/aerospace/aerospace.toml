@@ -103,13 +103,15 @@ outer.right = 10
 
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-# alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
+alt-enter = 'exec-and-forget open -a "kitty"'
 
 # See: https://nikitabobko.github.io/AeroSpace/goodness#open-a-new-window-with-applescript
-cmd-enter = 'exec-and-forget wezterm start'
-alt-t = 'exec-and-forget wezterm start'
+alt-t = 'exec-and-forget open -a "kitty"'
 alt-w = 'exec-and-forget open -a "Google Chrome"'
 alt-c = 'exec-and-forget open -a "Visual Studio Code"'
+
+# Screenshot to clipboard (snipping tool)
+alt-shift-s = 'exec-and-forget screencapture -i -c'
 
 cmd-h = []     # Disable "hide application"
 cmd-alt-h = [] # Disable "hide others"
@@ -213,14 +215,14 @@ alt-shift-right = [
   'exec-and-forget sketchybar --trigger aerospace_leave_service_mode',
 ]
 
-[[on-window-detected]]
-if.app-name-regex-substring = '^wezterm-gui$'
-run = 'move-node-to-workspace 1'
+# [[on-window-detected]]
+# if.app-id = 'net.kovidgoyal.kitty'
+# run = 'move-node-to-workspace 1'
 
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-run = 'move-node-to-workspace 2'
+# [[on-window-detected]]
+# if.app-id = 'company.thebrowser.Browser'
+# run = 'move-node-to-workspace 2'
 
-[[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace 3'
+# [[on-window-detected]]
+# if.app-id = 'com.microsoft.VSCode'
+# run = 'move-node-to-workspace 3'

@@ -5,7 +5,9 @@ local settings = require("settings")
 local apple = sbar.add("item", {
     icon = {
         font = {
-            size = 22.0
+            family = "FiraCode Nerd Font",
+            style = "Regular",
+            size = 20.0
         },
         string = settings.modes.main.icon,
         padding_right = 8,

@@ -64,7 +64,7 @@ cpu:subscribe("cpu_update", function(env)
 end)
 
 cpu:subscribe("mouse.clicked", function(env)
-    sbar.exec("open -a 'Activity Monitor'")
+    sbar.exec("open -a 'kitty' --args btop")
 end)
 
 -- Background around the cpu item

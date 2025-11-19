@@ -1,3 +1,4 @@
+require("items.widgets.keyboard_layout")
 require("items.widgets.battery")
 require("items.widgets.volume")
 require("items.widgets.wifi")

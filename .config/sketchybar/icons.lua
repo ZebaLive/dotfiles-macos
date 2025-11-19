@@ -1,13 +1,14 @@
 return {
     plus = "􀅼",
     loading = "􀖇",
-    apple = "",
-    rebel = "",
-    empire = "",
+    apple = "",
+    rebel = "󰀵",
+    empire = "",
     gear = "􀍟",
     cpu = "􀫥",
-    nuke = "",
+    nuke = "󰀪",
     clipboard = "􀉄",
+    keyboard = "􀇳",
 
     switch = {
         on = "􁏮",

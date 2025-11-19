@@ -106,7 +106,10 @@ outer.right = 10
 # alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
 
 # See: https://nikitabobko.github.io/AeroSpace/goodness#open-a-new-window-with-applescript
+cmd-enter = 'exec-and-forget wezterm start'
 alt-t = 'exec-and-forget wezterm start'
+alt-w = 'exec-and-forget open -a "Google Chrome"'
+alt-c = 'exec-and-forget open -a "Visual Studio Code"'
 
 cmd-h = []     # Disable "hide application"
 cmd-alt-h = [] # Disable "hide others"
@@ -219,18 +222,5 @@ if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
-if.app-id = 'com.todesktop.230313mzl4w4u92'
+if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'com.jetbrains.intellij'
-run = 'move-node-to-workspace 3'
-
-
-[[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'
-run = 'move-node-to-workspace 9'
-
-[[on-window-detected]]
-if.app-id = 'net.whatsapp.WhatsApp'
-run = 'move-node-to-workspace 9'

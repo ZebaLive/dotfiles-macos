@@ -140,7 +140,7 @@ return {
     ["Google Chrome Canary"] = ":google_chrome:",
     ["Jellyfin Media Player"] = ":jellyfin:",
     ["Zulip"] = ":zulip:",
-    ["1Password"] = ":one_password:",
+    ["NordPass"] = ":nord_pass:",
     ["FaceTime"] = ":face_time:",
     ["FaceTime 通话"] = ":face_time:",
     ["Citrix Workspace"] = ":citrix:",

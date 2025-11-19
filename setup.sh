@@ -8,17 +8,20 @@ xcode-select --install
 
 # Essentials
 brew install lua
-brew install sketchybar --cask FelixKratz/formulae
+brew tap FelixKratz/formulae
+brew install sketchybar
 brew install wezterm
+brew tap FelixKratz/formulae
 brew install borders
 brew install --cask nikitabobko/tap/aerospace
+brew install --cask karabiner-elements
 brew install wget
 brew install jq
 brew install fzf
 
 # Nice to have
 brew install --cask raycast
-brew install --cask 1password
+brew install --cask nordpass
 brew install --cask btop
 brew install switchaudio-osx
 brew install nowplaying-cli
@@ -33,8 +36,8 @@ brew install starship
 
 # Fonts
 brew install --cask sf-symbols
-brew install --cask homebrew/cask-fonts/font-sf-mono
-brew install --cask homebrew/cask-fonts/font-sf-pro
+brew install --cask font-sf-mono
+brew install --cask font-sf-pro
 
 curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.25/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
 

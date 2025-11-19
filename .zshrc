@@ -1,6 +1,8 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -12,7 +14,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf fzf ansible kubectx kubectl nvm yarn npm colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git fzf ansible∂ docker nvm yarn npm colored-man-pages zsh-autosuggestions zsh-syntax-highlighting uv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -29,14 +31,6 @@ alias vim=nvim
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:/Users/falleco/Library/Python/3.9/bin:$HOME/.rvm/bin"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
@@ -121,25 +115,6 @@ eval "$(zoxide init --cmd cd zsh)"
 #bindkey '^[[A' history-search-backward
 #bindkey '^[[B' history-search-forward
 
-# Added by serverless binary installer
-export PATH="$HOME/.serverless/bin:$PATH"
-
-# Add spicetify to the path
-export PATH="$HOME/.spicetify:$PATH"
-
-export ZKSYNC_HOME="$HOME/projects/web3/zksync-era"
-export PATH=$ZKSYNC_HOME/bin:$PATH
-export PATH="$HOME/.foundry/bin:$PATH"
-
-export NNN_TMPFILE="$HOME/.config/nnn/.lastd"
-export NNN_OPTS="AdHoU"
-export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
-
-export NARGO_HOME="$HOME/.nargo"
-export PATH="$PATH:$NARGO_HOME/bin"
-
-
 #export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 eval "$(starship init zsh)"
-

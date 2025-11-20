@@ -48,15 +48,15 @@ local cal = sbar.add("item", {
 --   }
 -- })
 
--- Padding item required because of bracket
-sbar.add("item", {
-    position = "right",
-    width = settings.group_paddings
-})
-
 cal:subscribe({"forced", "routine", "system_woke"}, function(env)
     cal:set({
         icon = "􀉉",
         label = os.date("%Y-%m-%d %H:%M")
     })
+end)
+
+-- Click handler to open Notification Center
+cal:subscribe("mouse.clicked", function()
+    -- Use keyboard shortcut to open notification center (Cmd+Shift+N)
+    sbar.exec("osascript -e 'tell application \"System Events\" to keystroke \"n\" using {command down, shift down}'")
 end)

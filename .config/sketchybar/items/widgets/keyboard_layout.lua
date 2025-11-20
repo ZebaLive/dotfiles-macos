@@ -33,12 +33,6 @@ local keyboard_layout = sbar.add("item", "widgets.keyboard_layout", {
     }
 })
 
--- Add padding
-sbar.add("item", "widgets.keyboard_layout.padding", {
-    position = "right",
-    width = settings.group_paddings
-})
-
 -- Function to get current keyboard layout
 local function update_keyboard_layout()
     sbar.exec([[defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -A2 'KeyboardLayout Name' | grep -v 'KeyboardLayout Name' | sed 's/[^a-zA-Z0-9]//g']], function(layout)

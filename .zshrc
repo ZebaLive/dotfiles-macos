@@ -14,7 +14,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf ansible∂ docker nvm yarn npm colored-man-pages zsh-autosuggestions zsh-syntax-highlighting uv)
+plugins=(git fzf ansible docker nvm yarn npm colored-man-pages zsh-autosuggestions fast-syntax-highlighting uv)
 
 source $ZSH/oh-my-zsh.sh
 

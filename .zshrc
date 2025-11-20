@@ -28,6 +28,129 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
 
+# Container engine configuration - change to "docker" if needed
+CONTAINER_ENGINE="docker"
+
+function container_php {
+    result=${PWD##*/}
+    GO="cd $result && php ${@}"
+    if [ "$result" = "team.arcapay.com" ]; then
+        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php82" -f "status=running" -q )" ]; then
+            ${CONTAINER_ENGINE} exec -it --user developer local-php82 bash -c "$GO"
+        else
+            echo "No running container found for php82"
+        fi
+    else
+        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php83" -f "status=running" -q )" ]; then
+            ${CONTAINER_ENGINE} exec -it --user developer local-php83 bash -c "$GO"
+        else
+            echo "No running container found for php83"
+        fi
+    fi
+    return $?
+}
+
+function container_cake {
+    result=${PWD##*/}
+    GO="cd $result && php ./bin/cake.php ${@}"
+    if [ "$result" = "team.arcapay.com" ]; then
+        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php82" -f "status=running" -q )" ]; then
+            ${CONTAINER_ENGINE} exec -it --user developer local-php82 bash -c "$GO"
+        else
+            echo "No running container found for php82"
+        fi
+    else
+        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php83" -f "status=running" -q )" ]; then
+            ${CONTAINER_ENGINE} exec -it --user developer local-php83 bash -c "$GO"
+        else
+            echo "No running container found for php83"
+        fi
+    fi
+    return $?
+}
+
+function container_exec {
+    result=${PWD##*/}
+    GO="cd $result && ${@}"
+    if [ "$result" = "team.arcapay.com" ]; then
+        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php82" -f "status=running" -q )" ]; then
+            ${CONTAINER_ENGINE} exec -it --user developer local-php82 bash -c "$GO"
+        else
+            echo "No running container found for php82"
+        fi
+    else
+        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php83" -f "status=running" -q )" ]; then
+            ${CONTAINER_ENGINE} exec -it --user developer local-php83 bash -c "$GO"
+        else
+            echo "No running container found for php83"
+        fi
+    fi
+    return $?
+}
+
+function container_composer {
+    result=${PWD##*/}
+    GO="cd $result && php composer.phar ${@}"
+    SSH_START='eval $(ssh-agent -s);'
+    SSH_ADD="ssh-add ${DOCKER_SSH_KEY_LOCATION:-/home/developer/.ssh/bitbucket};"
+    if [ "$result" = "team.arcapay.com" ]; then
+        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php82" -f "status=running" -q )" ]; then
+            ${CONTAINER_ENGINE} exec -it --user developer local-php82 bash -c "$SSH_START $SSH_ADD $GO"
+        else
+            echo "No running container found for php82"
+        fi
+    else
+        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php83" -f "status=running" -q )" ]; then
+            echo "running container found for php83"
+            ${CONTAINER_ENGINE} exec -it --user developer local-php83 bash -c "$SSH_START $SSH_ADD $GO"
+        else
+            echo "No running container found for php83"
+        fi
+    fi
+    return $?
+}
+
+alias php=container_php
+alias docx=container_exec
+alias cake=container_cake
+alias composer=container_composer
+
+# SSH Agent configuration
+SSH_ENV="$HOME/.ssh/environment"
+
+# start the ssh-agent
+function start_agent {
+    # spawn ssh-agent
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    
+    # Parse ~/.ssh/config and add keys defined with IdentityFile
+    local ssh_config="$HOME/.ssh/config"
+    if [[ -f "$ssh_config" ]]; then
+        # Extract IdentityFile paths from SSH config (excluding commented lines)
+        grep -E "^[[:space:]]*IdentityFile" "$ssh_config" | awk '{print $2}' | while read -r key; do
+            # Expand ~ to home directory
+            key="${key/#\~/$HOME}"
+            
+            # Add the key if it exists
+            if [[ -f "$key" ]]; then
+                /usr/bin/ssh-add "$key" >/dev/null 2>&1
+            fi
+        done
+    fi
+}
+
+# Source SSH settings, if applicable
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

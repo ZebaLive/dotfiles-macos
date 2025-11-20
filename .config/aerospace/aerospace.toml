@@ -108,7 +108,7 @@ alt-enter = 'exec-and-forget open -a "kitty"'
 # See: https://nikitabobko.github.io/AeroSpace/goodness#open-a-new-window-with-applescript
 alt-t = 'exec-and-forget open -a "kitty"'
 alt-w = 'exec-and-forget open -a "Google Chrome"'
-alt-c = 'exec-and-forget open -a "Visual Studio Code"'
+alt-c = 'exec-and-forget open -n -a "Visual Studio Code"'
 
 # Screenshot to clipboard (snipping tool)
 alt-shift-s = 'exec-and-forget screencapture -i -c'

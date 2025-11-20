@@ -4,6 +4,26 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Option+Space to Command+Space",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": ["option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Disable Command+Q (use Command+Shift+Q to quit)",
                         "manipulators": [
                             {
@@ -48,7 +68,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "q",
+                                        "key_code": "w",
                                         "modifiers": ["command"]
                                     }
                                 ],
@@ -58,6 +78,21 @@
                     }
                 ]
             },
+            "fn_function_keys": [
+                {
+                    "from": { "key_code": "f3" },
+                    "to": [{ "key_code": "vk_none" }]
+                },
+                {
+                    "from": { "key_code": "f4" },
+                    "to": [
+                        {
+                            "key_code": "spacebar",
+                            "modifiers": ["command"]
+                        }
+                    ]
+                }
+            ],
             "name": "Default profile",
             "selected": true,
             "virtual_hid_keyboard": {

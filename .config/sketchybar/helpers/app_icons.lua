@@ -189,6 +189,7 @@ return {
     ["Tweetbot"] = ":twitter:",
     ["Twitter"] = ":twitter:",
     ["Microsoft Teams"] = ":microsoft_teams:",
+    ["Google Chat"] = ":google_chat:",
     ["Yuque"] = ":yuque:",
     ["语雀"] = ":yuque:",
     ["Slack"] = ":slack:",

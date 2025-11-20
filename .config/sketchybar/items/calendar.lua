@@ -57,6 +57,6 @@ end)
 
 -- Click handler to open Notification Center
 cal:subscribe("mouse.clicked", function()
-    -- Use keyboard shortcut to open notification center (Cmd+Shift+N)
-    sbar.exec("osascript -e 'tell application \"System Events\" to keystroke \"n\" using {command down, shift down}'")
+    -- Use keyboard shortcut to open notification center (Cmd+Option+N)
+    sbar.exec("osascript -e 'tell application \"System Events\" to keystroke \"n\" using {command down, option down}'")
 end)

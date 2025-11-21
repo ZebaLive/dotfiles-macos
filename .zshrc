@@ -5,6 +5,9 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export HOMEBREW_NO_ENV_HINTS=1
 
+# GPG signing configuration
+export GPG_TTY=$(tty)
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

@@ -62,6 +62,11 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
+# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
+# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
+automatically-unhide-macos-hidden-apps = false
+
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8
@@ -74,11 +79,7 @@ inner.horizontal = 10
 inner.vertical = 10
 outer.left = 10
 outer.bottom = 10
-outer.top = [
-  { monitor."LG HDR 4K" = 40 },
-  { monitor."Sidecar Display" = 40 },
-  10,
-]
+outer.top = 10
 outer.right = 10
 
 # 'main' binding mode declaration
@@ -109,6 +110,7 @@ alt-enter = 'exec-and-forget open -a "kitty"'
 alt-t = 'exec-and-forget open -a "kitty"'
 alt-w = 'exec-and-forget open -a "Google Chrome"'
 alt-c = 'exec-and-forget open -n -a "Visual Studio Code"'
+alt-e = 'exec-and-forget open -a "Finder"'
 
 # Screenshot to clipboard (snipping tool)
 alt-shift-s = 'exec-and-forget screencapture -i -c'
@@ -137,7 +139,7 @@ alt-shift-right = 'move right'
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
-alt-shift-c = 'reload-config'
+alt-shift-c = ['reload-config', 'exec-and-forget sketchybar --reload']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -230,3 +232,4 @@ alt-shift-right = [
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace 4'
+

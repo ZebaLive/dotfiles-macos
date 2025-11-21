@@ -3,18 +3,20 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="$HOME/.local/bin:$PATH"
 
+export HOMEBREW_NO_ENV_HINTS=1
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf ansible docker nvm yarn npm colored-man-pages zsh-autosuggestions fast-syntax-highlighting uv)
+plugins=(git fzf docker nvm yarn npm colored-man-pages zsh-autosuggestions fast-syntax-highlighting uv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -163,15 +165,19 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
-# --- setup fzf theme ---
-fg="#CBE0F0"
-bg="#011628"
-bg_highlight="#143652"
-purple="#B388FF"
-blue="#06BCE4"
-cyan="#2CF9ED"
+# --- setup fzf theme (Catppuccin Mocha) ---
+fg="#CDD6F4"
+bg="#1E1E2E"
+bg_highlight="#313244"
+purple="#CBA6F7"
+blue="#89B4FA"
+cyan="#89DCEB"
+green="#A6E3A1"
+orange="#FAB387"
+red="#F38BA8"
+yellow="#F9E2AF"
 
-export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+export FZF_DEFAULT_OPTS="--color=bg+:${bg_highlight},bg:${bg},spinner:${green},hl:${red},fg:${fg},header:${blue},info:${purple},pointer:${green},marker:${green},fg+:${fg},prompt:${purple},hl+:${red}"
 
 # -- Use fd instead of fzf --
 
@@ -217,7 +223,7 @@ _fzf_comprun() {
 alias cat='bat --paging=never'
 
 # ---- Eza (better ls) -----
-alias ls="eza --color=always --long --git --icons=always --no-time --no-user --no-permissions"
+alias ls="eza --icons"
 
 # thefuck alias
 eval $(thefuck --alias)

@@ -16,7 +16,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf docker nvm yarn npm colored-man-pages zsh-autosuggestions fast-syntax-highlighting uv)
+plugins=(git asdf fzf docker colored-man-pages zsh-autosuggestions fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -152,10 +152,6 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform

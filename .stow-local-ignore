@@ -3,4 +3,6 @@
 ^/\.git
 ^/\.gitignore
 ^/setup\.sh
+^/set-dns\.sh
 ^/assets
+\.DS_Store$

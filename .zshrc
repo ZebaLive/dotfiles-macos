@@ -5,6 +5,24 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export HOMEBREW_NO_ENV_HINTS=1
 
+export ZOXIDE_CMD_OVERRIDE="cd"
+
+# --- setup fzf theme (Catppuccin Mocha) ---
+fg="#CDD6F4"
+bg="#1E1E2E"
+bg_highlight="#313244"
+purple="#CBA6F7"
+blue="#89B4FA"
+cyan="#89DCEB"
+green="#A6E3A1"
+orange="#FAB387"
+red="#F38BA8"
+yellow="#F9E2AF"
+
+export FZF_DEFAULT_OPTS="--color=bg+:${bg_highlight},bg:${bg},spinner:${green},hl:${red},fg:${fg},header:${blue},info:${purple},pointer:${green},marker:${green},fg+:${fg},prompt:${purple},hl+:${red}"
+
+zstyle ':omz:plugins:eza' 'icons' yes
+
 # GPG signing configuration
 export GPG_TTY=$(tty)
 
@@ -19,7 +37,7 @@ export GPG_TTY=$(tty)
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf fzf docker colored-man-pages zsh-autosuggestions fast-syntax-highlighting)
+plugins=(git asdf direnv fzf docker colored-man-pages zsh-autosuggestions fast-syntax-highlighting eza starship zoxide thefuck)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -159,27 +177,7 @@ fi
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
-# ---- FZF -----
-
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
-
-# --- setup fzf theme (Catppuccin Mocha) ---
-fg="#CDD6F4"
-bg="#1E1E2E"
-bg_highlight="#313244"
-purple="#CBA6F7"
-blue="#89B4FA"
-cyan="#89DCEB"
-green="#A6E3A1"
-orange="#FAB387"
-red="#F38BA8"
-yellow="#F9E2AF"
-
-export FZF_DEFAULT_OPTS="--color=bg+:${bg_highlight},bg:${bg},spinner:${green},hl:${red},fg:${fg},header:${blue},info:${purple},pointer:${green},marker:${green},fg+:${fg},prompt:${purple},hl+:${red}"
-
 # -- Use fd instead of fzf --
-
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
@@ -192,7 +190,7 @@ _fzf_compgen_path() {
 }
 
 # Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
+_fzf_compgen_dir(){ 
   fd --type=d --hidden --exclude .git . "$1"
 }
 
@@ -221,14 +219,8 @@ _fzf_comprun() {
 # ----- Bat (better cat) -----
 alias cat='bat --paging=never'
 
-# ---- Eza (better ls) -----
-alias ls="eza --icons"
-
-# thefuck alias
-eval $(thefuck --alias)
-
-# ---- Zoxide (better cd) ----
-eval "$(zoxide init --cmd cd zsh)"
+# Remap fzf directory navigation from Alt+C to Ctrl+G
+bindkey '^g' fzf-cd-widget
 
 # history setup
 #HISTFILE=$HOME/.zhistory
@@ -244,5 +236,3 @@ eval "$(zoxide init --cmd cd zsh)"
 #bindkey '^[[B' history-search-forward
 
 #export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-
-eval "$(starship init zsh)"

@@ -1,4 +1,3 @@
-![ScreenShot](./assets/screenshot.png)
 <center><span style="font-size: 12px;">[Aerospace + SketchyBar + Borders + Alfred]</span></center>
 
 Hey there! This is my personal MacOS configuration files focused on creating a minimal, functional, and aesthetically pleasing development environment for both work and personal projects.

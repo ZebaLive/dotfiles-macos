@@ -17,7 +17,6 @@ after-startup-command = [
   # JankyBorders has a built-in detection of already running process,
   # so it won't be run twice on AeroSpace restart
   'exec-and-forget borders active_color=0xffcba6f7 inactive_color=0xff45475a width=5.0',
-  'exec-and-forget open -a "Google Chat"',
 ]
 
 # Notify Sketchybar about workspace change

@@ -7,6 +7,13 @@ export HOMEBREW_NO_ENV_HINTS=1
 
 export ZOXIDE_CMD_OVERRIDE="cd"
 
+# --- SSH Agent Plugin Configuration ---
+# Lazy loading: don't add keys until first use
+zstyle :omz:plugins:ssh-agent lazy yes
+
+# macOS keychain integration for SSH passphrases
+zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
+
 # --- setup fzf theme (Catppuccin Mocha) ---
 fg="#CDD6F4"
 bg="#1E1E2E"
@@ -37,7 +44,7 @@ export GPG_TTY=$(tty)
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf direnv fzf docker colored-man-pages zsh-autosuggestions fast-syntax-highlighting eza starship zoxide thefuck)
+plugins=(git asdf direnv fzf docker colored-man-pages zsh-autosuggestions fast-syntax-highlighting eza starship zoxide thefuck ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -137,42 +144,6 @@ alias php=container_php
 alias docx=container_exec
 alias cake=container_cake
 alias composer=container_composer
-
-# SSH Agent configuration
-SSH_ENV="$HOME/.ssh/environment"
-
-# start the ssh-agent
-function start_agent {
-    # spawn ssh-agent
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    
-    # Parse ~/.ssh/config and add keys defined with IdentityFile
-    local ssh_config="$HOME/.ssh/config"
-    if [[ -f "$ssh_config" ]]; then
-        # Extract IdentityFile paths from SSH config (excluding commented lines)
-        grep -E "^[[:space:]]*IdentityFile" "$ssh_config" | awk '{print $2}' | while read -r key; do
-            # Expand ~ to home directory
-            key="${key/#\~/$HOME}"
-            
-            # Add the key if it exists
-            if [[ -f "$key" ]]; then
-                /usr/bin/ssh-add "$key" >/dev/null 2>&1
-            fi
-        done
-    fi
-}
-
-# Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform

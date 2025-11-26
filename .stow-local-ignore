@@ -4,5 +4,6 @@
 ^/\.gitignore
 ^/setup\.sh
 ^/set-dns\.sh
+^/scripts
 ^/assets
 \.DS_Store$

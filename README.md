@@ -20,11 +20,13 @@ As a previous linux/hyprland user I've been trying to get the best of both world
 ## Quick Start
 
 1. Run the main setup script to install all dependencies:
+
    ```bash
    ./setup.sh
    ```
 
 2. Use GNU Stow to symlink the configuration files:
+
    ```bash
    stow .
    ```

@@ -112,9 +112,6 @@ alt-w = 'exec-and-forget open -a "Google Chrome"'
 alt-c = 'exec-and-forget open -n -a "Visual Studio Code"'
 alt-e = 'exec-and-forget open -a "Finder"'
 
-# Screenshot to clipboard (snipping tool)
-alt-shift-s = 'exec-and-forget screencapture -i -c'
-
 cmd-h = []     # Disable "hide application"
 cmd-alt-h = [] # Disable "hide others"
 
@@ -234,4 +231,8 @@ run = 'move-node-to-workspace 4'
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome.app.mdpkiolbdkhdjpekfbkbmhigcaggjagi'
 run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'cc.ffitch.shottr'
+run = ['layout floating']
 

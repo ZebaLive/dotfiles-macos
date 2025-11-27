@@ -18,6 +18,7 @@ brew install --cask karabiner-elements
 brew install wget
 brew install jq
 brew install fzf
+brew install stow
 
 # Nice to have
 brew install --cask alfred

@@ -44,7 +44,7 @@ export GPG_TTY=$(tty)
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf direnv fzf docker colored-man-pages zsh-autosuggestions fast-syntax-highlighting eza starship zoxide thefuck ssh-agent)
+plugins=(git asdf direnv mise fzf docker colored-man-pages zsh-autosuggestions fast-syntax-highlighting eza starship zoxide thefuck ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 

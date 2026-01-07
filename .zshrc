@@ -212,3 +212,5 @@ fpath=(/Users/paulius/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+# . $(brew --prefix asdf)/libexec/asdf.sh
+# eval "$(direnv hook zsh)"

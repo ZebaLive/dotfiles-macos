@@ -74,12 +74,26 @@ automatically-unhide-macos-hidden-apps = false
 #                 In this example, 24 is a default value when there is no match.
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+
+# Assign workspaces to monitors
+# 'main' = Built-in Retina Display, 'LS24C33xG' = External Samsung monitor
+# See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'LS24C33xG'
+6 = 'LS24C33xG'
+7 = 'LS24C33xG'
+8 = 'LS24C33xG'
+
 [gaps]
 inner.horizontal = 10
 inner.vertical = 10
 outer.left = 10
 outer.bottom = 10
-outer.top = 10
+outer.top = [{ monitor.'LS24C33xG' = 40 }, 10]
 outer.right = 10
 
 # 'main' binding mode declaration
@@ -226,11 +240,11 @@ alt-shift-right = [
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-node-to-workspace 4'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome.app.mdpkiolbdkhdjpekfbkbmhigcaggjagi'
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-id = 'cc.ffitch.shottr'

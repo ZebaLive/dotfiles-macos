@@ -44,7 +44,22 @@ export GPG_TTY=$(tty)
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf direnv mise fzf docker colored-man-pages zsh-autosuggestions fast-syntax-highlighting eza starship zoxide thefuck ssh-agent)
+plugins=(
+    git 
+    asdf 
+    direnv 
+    mise 
+    fzf 
+    docker 
+    colored-man-pages 
+    zsh-autosuggestions 
+    fast-syntax-highlighting 
+    eza 
+    starship 
+    zoxide 
+    thefuck 
+    ssh-agent
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -207,10 +222,10 @@ bindkey '^g' fzf-cd-widget
 #bindkey '^[[B' history-search-forward
 
 #export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/paulius/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 # . $(brew --prefix asdf)/libexec/asdf.sh
 # eval "$(direnv hook zsh)"
+
+export SMART_DATE_ENV_FILE=local.envexport PATH="/opt/homebrew/opt/openssh/bin:$PATH"

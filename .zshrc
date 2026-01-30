@@ -45,8 +45,7 @@ export GPG_TTY=$(tty)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git 
-    asdf 
+    git  
     direnv 
     mise 
     fzf 
@@ -204,7 +203,6 @@ _fzf_comprun() {
 
 # ----- Bat (better cat) -----
 alias cat='bat --paging=never'
-
 # Remap fzf directory navigation from Alt+C to Ctrl+G
 bindkey '^g' fzf-cd-widget
 
@@ -225,7 +223,3 @@ bindkey '^g' fzf-cd-widget
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
-# . $(brew --prefix asdf)/libexec/asdf.sh
-# eval "$(direnv hook zsh)"
-
-export SMART_DATE_ENV_FILE=local.envexport PATH="/opt/homebrew/opt/openssh/bin:$PATH"

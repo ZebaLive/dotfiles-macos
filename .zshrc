@@ -1,11 +1,10 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
-export PATH="$HOME/.local/bin:$PATH"
-
 export HOMEBREW_NO_ENV_HINTS=1
 
 export ZOXIDE_CMD_OVERRIDE="cd"
+
 
 # --- SSH Agent Plugin Configuration ---
 # Lazy loading: don't add keys until first use
@@ -45,9 +44,9 @@ export GPG_TTY=$(tty)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git  
+    git
     direnv 
-    mise 
+    asdf 
     fzf 
     docker 
     colored-man-pages 
@@ -58,12 +57,16 @@ plugins=(
     zoxide 
     thefuck 
     ssh-agent
+    bun
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# Custom paths (must be AFTER oh-my-zsh to override any plugin PATH modifications)
+export PATH="/opt/homebrew/opt/openssh/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
@@ -223,3 +226,4 @@ bindkey '^g' fzf-cd-widget
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+

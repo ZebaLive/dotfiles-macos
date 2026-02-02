@@ -1,0 +1,10 @@
+# Store direnv layouts in a central cache directory
+: ${XDG_CACHE_HOME:=$HOME/.cache}
+declare -A direnv_layout_dirs
+direnv_layout_dir() {
+  echo "${direnv_layout_dirs[$PWD]:=$(
+    local hash="$(sha1sum - <<<"${PWD}" | head -c40)"
+    local path="${XDG_CACHE_HOME}/direnv/layouts/${hash}"
+    echo "${path}"
+  )}"
+}

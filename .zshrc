@@ -5,6 +5,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 
 export ZOXIDE_CMD_OVERRIDE="cd"
 
+export PATH="/opt/homebrew/bin:$PATH"
 
 # --- SSH Agent Plugin Configuration ---
 # Lazy loading: don't add keys until first use
@@ -51,20 +52,18 @@ plugins=(
     docker 
     colored-man-pages 
     zsh-autosuggestions 
-    fast-syntax-highlighting 
+    fast-syntax-highlighting
     eza 
     starship 
     zoxide 
     thefuck 
     ssh-agent
-    bun
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # Custom paths (must be AFTER oh-my-zsh to override any plugin PATH modifications)
 export PATH="/opt/homebrew/opt/openssh/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -222,8 +221,8 @@ bindkey '^g' fzf-cd-widget
 #bindkey '^[[A' history-search-backward
 #bindkey '^[[B' history-search-forward
 
-#export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
 

@@ -46,8 +46,9 @@ export GPG_TTY=$(tty)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    direnv 
-    asdf 
+    asdf
+    mise
+    direnv
     fzf 
     docker 
     colored-man-pages 
@@ -224,5 +225,6 @@ bindkey '^g' fzf-cd-widget
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
 
 

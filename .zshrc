@@ -55,8 +55,6 @@ plugins=(
     zsh-autosuggestions 
     fast-syntax-highlighting
     eza 
-    starship 
-    zoxide 
     thefuck 
     ssh-agent
 )
@@ -226,5 +224,14 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 
+# ===== STARSHIP PROMPT =====
+# Initialize starship (this should be near the end)
+if command -v starship &> /dev/null; then
+    eval "$(starship init zsh)"
+fi
 
+# ===== ZOXIDE (better cd) — must be last =====
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init --cmd cd zsh)"
+fi
 

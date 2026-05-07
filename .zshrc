@@ -30,9 +30,6 @@ export FZF_DEFAULT_OPTS="--color=bg+:${bg_highlight},bg:${bg},spinner:${green},h
 
 zstyle ':omz:plugins:eza' 'icons' yes
 
-# GPG signing configuration
-export GPG_TTY=$(tty)
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -64,10 +61,10 @@ export PATH="/opt/homebrew/opt/openssh/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # --- Tool version managers (priority: mise > asdf > system) ---
-# Init asdf first so its shims land in PATH
-[[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]] && . /opt/homebrew/opt/asdf/libexec/asdf.sh
 # Init mise after so its shims are prepended and take priority over asdf
 command -v mise &>/dev/null && eval "$(mise activate zsh)"
+# Init asdf first so its shims land in PATH
+[[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]] && . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
@@ -76,93 +73,6 @@ command -v mise &>/dev/null && eval "$(mise activate zsh)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
-
-# Container engine configuration - change to "docker" if needed
-CONTAINER_ENGINE="docker"
-
-function container_php {
-    result=${PWD##*/}
-    GO="cd $result && php ${@}"
-    if [ "$result" = "team.arcapay.com" ]; then
-        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php82" -f "status=running" -q )" ]; then
-            ${CONTAINER_ENGINE} exec -it --user developer local-php82 bash -c "$GO"
-        else
-            echo "No running container found for php82"
-        fi
-    else
-        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php83" -f "status=running" -q )" ]; then
-            ${CONTAINER_ENGINE} exec -it --user developer local-php83 bash -c "$GO"
-        else
-            echo "No running container found for php83"
-        fi
-    fi
-    return $?
-}
-
-function container_cake {
-    result=${PWD##*/}
-    GO="cd $result && php ./bin/cake.php ${@}"
-    if [ "$result" = "team.arcapay.com" ]; then
-        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php82" -f "status=running" -q )" ]; then
-            ${CONTAINER_ENGINE} exec -it --user developer local-php82 bash -c "$GO"
-        else
-            echo "No running container found for php82"
-        fi
-    else
-        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php83" -f "status=running" -q )" ]; then
-            ${CONTAINER_ENGINE} exec -it --user developer local-php83 bash -c "$GO"
-        else
-            echo "No running container found for php83"
-        fi
-    fi
-    return $?
-}
-
-function container_exec {
-    result=${PWD##*/}
-    GO="cd $result && ${@}"
-    if [ "$result" = "team.arcapay.com" ]; then
-        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php82" -f "status=running" -q )" ]; then
-            ${CONTAINER_ENGINE} exec -it --user developer local-php82 bash -c "$GO"
-        else
-            echo "No running container found for php82"
-        fi
-    else
-        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php83" -f "status=running" -q )" ]; then
-            ${CONTAINER_ENGINE} exec -it --user developer local-php83 bash -c "$GO"
-        else
-            echo "No running container found for php83"
-        fi
-    fi
-    return $?
-}
-
-function container_composer {
-    result=${PWD##*/}
-    GO="cd $result && php composer.phar ${@}"
-    SSH_START='eval $(ssh-agent -s);'
-    SSH_ADD="ssh-add ${DOCKER_SSH_KEY_LOCATION:-/home/developer/.ssh/bitbucket};"
-    if [ "$result" = "team.arcapay.com" ]; then
-        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php82" -f "status=running" -q )" ]; then
-            ${CONTAINER_ENGINE} exec -it --user developer local-php82 bash -c "$SSH_START $SSH_ADD $GO"
-        else
-            echo "No running container found for php82"
-        fi
-    else
-        if [ -n "$(${CONTAINER_ENGINE} ps -f "name=local-php83" -f "status=running" -q )" ]; then
-            echo "running container found for php83"
-            ${CONTAINER_ENGINE} exec -it --user developer local-php83 bash -c "$SSH_START $SSH_ADD $GO"
-        else
-            echo "No running container found for php83"
-        fi
-    fi
-    return $?
-}
-
-alias php=container_php
-alias docx=container_exec
-alias cake=container_cake
-alias composer=container_composer
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform

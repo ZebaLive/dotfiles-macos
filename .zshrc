@@ -58,13 +58,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Custom paths (must be AFTER oh-my-zsh to override any plugin PATH modifications)
 export PATH="/opt/homebrew/opt/openssh/bin:$PATH"
+# Brew python unversioned symlinks (python, pip) — used by asdf 'system' fallback
+export PATH="/opt/homebrew/opt/python@3.14/libexec/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-# --- Tool version managers (priority: mise > asdf > system) ---
-# Init mise after so its shims are prepended and take priority over asdf
+# mise second — prepends its shims so they take priority over asdf
 command -v mise &>/dev/null && eval "$(mise activate zsh)"
-# Init asdf first so its shims land in PATH
-[[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]] && . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.

@@ -1,0 +1,26 @@
+{
+  // /team role routing — mirrors the agent→model routing already used for
+  // subagent dispatch in ~/.claude/CLAUDE.md's model_routing/agent_catalog,
+  // so a /team session assigns the same tiers to the same roles.
+  // Ref: skills/team/SKILL.md#per-role-provider--model-routing
+  "team": {
+    "roleRouting": {
+      "orchestrator": { "model": "inherit" },
+      "planner": { "provider": "claude", "model": "HIGH" },
+      "analyst": { "provider": "claude", "model": "HIGH" },
+      "architect": { "provider": "claude", "model": "HIGH" },
+      "executor": { "provider": "claude", "model": "MEDIUM" },
+      "debugger": { "provider": "claude", "model": "MEDIUM" },
+      "critic": { "provider": "claude", "model": "HIGH" },
+      "code-reviewer": { "provider": "claude", "model": "HIGH" },
+      "security-reviewer": { "provider": "claude", "model": "MEDIUM" },
+      "test-engineer": { "provider": "claude", "model": "MEDIUM" },
+      // Visual design role routed to Antigravity (tmux CLI worker, `agy` binary).
+      "designer": { "provider": "antigravity" },
+      "writer": { "provider": "claude", "model": "LOW" },
+      "code-simplifier": { "provider": "claude", "model": "HIGH" },
+      "explore": { "provider": "claude", "model": "LOW" },
+      "document-specialist": { "provider": "claude", "model": "MEDIUM" }
+    }
+  }
+}

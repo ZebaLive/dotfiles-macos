@@ -1,4 +1,6 @@
 [settings]
-legacy_version_file = false
-disable_tools = ["github-cli"]
-idiomatic_version_file = false
+legacy_version_file = true
+# poetry: managed by pipx (mise's plugin has broken dylib refs on macOS)
+# github-cli: managed by brew
+disable_tools = ["github-cli", "poetry"]
+idiomatic_version_file = true

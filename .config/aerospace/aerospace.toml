@@ -85,15 +85,15 @@ automatically-unhide-macos-hidden-apps = false
 4 = 'main'
 5 = 'LS24C33xG'
 6 = 'LS24C33xG'
-7 = 'LS24C33xG'
-8 = 'LS24C33xG'
+7 = ['LC27G5xT', 'LS24C33xG']
+8 = ['LC27G5xT', 'LS24C33xG']
 
 [gaps]
 inner.horizontal = 10
 inner.vertical = 10
 outer.left = 10
 outer.bottom = 10
-outer.top = [{ monitor.'LS24C33xG' = 40 }, 10]
+outer.top = [{ monitor.'LS24C33xG' = 40 }, { monitor.'LC27G5xT' = 40 }, 10]
 outer.right = 10
 
 # 'main' binding mode declaration

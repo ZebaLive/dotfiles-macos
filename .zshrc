@@ -3,9 +3,11 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export HOMEBREW_NO_ENV_HINTS=1
 
-export ZOXIDE_CMD_OVERRIDE="cd"
-
 export PATH="/opt/homebrew/bin:$PATH"
+
+# Disable zoxide doctor warning (VS Code/Claude shell integration adds hooks
+# after .zshrc, triggering a false positive)
+export _ZO_DOCTOR=0
 
 # --- SSH Agent Plugin Configuration ---
 # Lazy loading: don't add keys until first use

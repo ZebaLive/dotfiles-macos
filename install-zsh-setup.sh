@@ -123,9 +123,6 @@ export PATH="$HOME/.local/bin:$PATH"
 # Disable Homebrew hints
 export HOMEBREW_NO_ENV_HINTS=1
 
-# Zoxide configuration - override cd command
-export ZOXIDE_CMD_OVERRIDE="cd"
-
 # --- SSH Agent Plugin Configuration ---
 # Lazy loading: don't add keys until first use
 zstyle :omz:plugins:ssh-agent lazy yes

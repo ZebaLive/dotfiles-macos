@@ -4,3 +4,7 @@ legacy_version_file = true
 # github-cli: managed by brew
 disable_tools = ["github-cli", "poetry"]
 idiomatic_version_file = true
+
+[tools]
+"aqua:rhysd/actionlint" = "1.7.7"
+node = "lts"

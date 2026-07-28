@@ -9,13 +9,6 @@ export PATH="/opt/homebrew/bin:$PATH"
 # after .zshrc, triggering a false positive)
 export _ZO_DOCTOR=0
 
-# --- SSH Agent Plugin Configuration ---
-# Lazy loading: don't add keys until first use
-zstyle :omz:plugins:ssh-agent lazy yes
-
-# macOS keychain integration for SSH passphrases
-zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
-
 # --- setup fzf theme (Catppuccin Mocha) ---
 fg="#CDD6F4"
 bg="#1E1E2E"
@@ -51,7 +44,6 @@ plugins=(
     zsh-autosuggestions 
     fast-syntax-highlighting
     eza 
-    ssh-agent
 )
 
 source $ZSH/oh-my-zsh.sh

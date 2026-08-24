@@ -85,15 +85,15 @@ automatically-unhide-macos-hidden-apps = false
 4 = 'main'
 5 = 'LS24C33xG'
 6 = 'LS24C33xG'
-7 = ['LC27G5xT', 'LS24C33xG']
-8 = ['LC27G5xT', 'LS24C33xG']
+7 = ['LC27G5xT', 'LS24C33xG', 'DELL P2425H']
+8 = ['LC27G5xT', 'LS24C33xG', 'DELL P2425H']
 
 [gaps]
 inner.horizontal = 10
 inner.vertical = 10
 outer.left = 10
 outer.bottom = 10
-outer.top = [{ monitor.'LS24C33xG' = 40 }, { monitor.'LC27G5xT' = 40 }, 10]
+outer.top = [{ monitor.'LS24C33xG' = 40 }, { monitor.'LC27G5xT' = 40 }, { monitor.'DELL P2425H' = 40 }, 10]
 outer.right = 10
 
 # 'main' binding mode declaration
@@ -118,10 +118,10 @@ outer.right = 10
 
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-alt-enter = 'exec-and-forget open -a "kitty"'
+alt-enter = 'exec-and-forget /bin/bash -lc "kitty @ --to unix:/tmp/mykitty launch --type=os-window --cwd=current || open -a kitty"'
 
 # See: https://nikitabobko.github.io/AeroSpace/goodness#open-a-new-window-with-applescript
-alt-t = 'exec-and-forget open -a "kitty"'
+alt-t = 'exec-and-forget /bin/bash -lc "kitty @ --to unix:/tmp/mykitty launch --type=os-window --cwd=current || open -a kitty"'
 alt-w = 'exec-and-forget open -a "Google Chrome"'
 alt-c = 'exec-and-forget open -n -a "Visual Studio Code"'
 alt-e = 'exec-and-forget open -a "Finder"'
@@ -245,8 +245,4 @@ run = 'move-node-to-workspace 5'
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome.app.mdpkiolbdkhdjpekfbkbmhigcaggjagi'
 run = 'move-node-to-workspace 6'
-
-[[on-window-detected]]
-if.app-id = 'cc.ffitch.shottr'
-run = ['layout floating']
 

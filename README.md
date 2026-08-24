@@ -1,4 +1,4 @@
-# Aerospace + SketchyBar + Borders + Alfred
+# Aerospace + SketchyBar + Borders + Vorssaint
 
 Hey there! This is my personal MacOS configuration files focused on creating a minimal, functional, and aesthetically pleasing development environment for both work and personal projects.
 
@@ -10,12 +10,7 @@ As a previous linux/hyprland user I've been trying to get the best of both world
 - **Terminal**: [Kitty](https://sw.kovidgoyal.net/kitty/) configured for optimal development experience
 - **Status Bar**: Custom [SketchyBar](https://github.com/FelixKratz/SketchyBar) configuration using Lua, already integrated with Aerospace for dynamically loading workspaces and listen for events.
 - **System Borders**: Enhanced window borders using [JankyBorders](https://github.com/FelixKratz/JankyBorders)
-- **Additional Tools**:
-  - Alfred for app launching and workflows
-  - Starship for shell customization
-  - Neovim as the primary terminal text editor
-  - Karabiner-Elements for keyboard customization
-  - Various CLI utilities (zoxide, eza, fzf, btop, thefuck, etc.)
+- **Additional Tools**: Vorssaint Command Bar, Starship, Neovim, Karabiner-Elements, and CLI utilities such as zoxide, eza, fzf, and btop
 
 ## Quick Start
 
@@ -25,8 +20,11 @@ As a previous linux/hyprland user I've been trying to get the best of both world
    ./setup.sh
    ```
 
-2. Use GNU Stow to symlink the configuration files:
+2. Create a real config directory, then use GNU Stow to symlink only the managed configuration files:
 
    ```bash
-   stow .
+   mkdir -p "$HOME/.config"
+   stow --target="$HOME" .
    ```
+
+   The managed application folders become child symlinks under `~/.config`. New configuration folders created by other applications remain local to your home directory.

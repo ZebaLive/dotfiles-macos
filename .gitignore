@@ -16,3 +16,5 @@ pip/
 .vscode/
 context7/
 wireshark/
+consult-llm/
+opencode/

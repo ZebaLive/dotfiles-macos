@@ -4,24 +4,6 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Option+Space to Command+Space",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["option"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Disable Command+Q (use Command+Shift+Q to quit)",
                         "manipulators": [
                             {
@@ -76,47 +58,6 @@
                     }
                 ]
             },
-            "devices": [
-                {
-                    "identifiers": {
-                        "is_pointing_device": true,
-                        "product_id": 6972,
-                        "vendor_id": 6940
-                    },
-                    "ignore": false,
-                    "mouse_flip_horizontal_wheel": true,
-                    "mouse_flip_vertical_wheel": true
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 50495,
-                        "vendor_id": 1133
-                    },
-                    "ignore": true,
-                    "manipulate_caps_lock_led": false
-                },
-                {
-                    "identifiers": {
-                        "is_pointing_device": true,
-                        "product_id": 50495,
-                        "vendor_id": 1133
-                    },
-                    "ignore": false,
-                    "mouse_flip_horizontal_wheel": true,
-                    "mouse_flip_vertical_wheel": true
-                },
-                {
-                    "identifiers": {
-                        "is_pointing_device": true,
-                        "product_id": 50498,
-                        "vendor_id": 1133
-                    },
-                    "ignore": false,
-                    "mouse_flip_horizontal_wheel": true,
-                    "mouse_flip_vertical_wheel": true
-                }
-            ],
             "fn_function_keys": [
                 {
                     "from": { "key_code": "f3" },

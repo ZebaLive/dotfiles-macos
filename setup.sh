@@ -21,13 +21,21 @@ brew install fzf
 brew install stow
 
 # Nice to have
-brew install --cask alfred
 brew install --cask nordpass
 brew install --cask btop
 brew install switchaudio-osx
+brew install --cask vorssaint
 brew install nowplaying-cli
 brew install thefuck
 brew install htop
+
+# Vorssaint
+defaults write com.vorssaint.utils featureAvailable.commandBar -bool true
+defaults write com.vorssaint.utils commandBarShortcutEnabled -bool true
+defaults write com.vorssaint.utils commandBarShortcut -string 'option:49'
+defaults write com.vorssaint.utils featureAvailable.screenshot -bool true
+defaults write com.vorssaint.utils screenshotShortcutEnabled -bool true
+defaults write com.vorssaint.utils screenshotShortcut -string 'option+shift:1'
 
 # Terminal
 brew install neovim

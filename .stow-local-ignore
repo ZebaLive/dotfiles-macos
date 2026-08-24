@@ -1,9 +1,1 @@
-^/README\.md
-^/LICENSE
-^/\.git
-^/\.gitignore
-^/setup\.sh
-^/set-dns\.sh
-^/scripts
-^/assets
-\.DS_Store$
+^(?!/\.config(?:/|$)|/\.zshrc$).*

@@ -213,6 +213,7 @@ return {
     ["Benji"] = ":bear:",
     ["Microsoft Outlook"] = ":microsoft_outlook:",
     ["ChatGPT"] = ":openai:",
+    ["T3 Code (Alpha)"] = ":t3_code:",
     ["default"] = ":default:"
 }
   
